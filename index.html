@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>D5.2.2 - ADAPTIVE WIDGET CHOREOGRAPHY</title>
+    <link href="core/style.css" rel="stylesheet">
+    <link href="lib/jquery-ui/css/no-theme/jquery-ui-1.10.0.custom.css" rel="stylesheet">
+    <link href="lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <script src="lib/jquery-1.9.0.js"></script>
+    <script src="lib/jquery-ui/js/jquery-ui-1.10.0.custom.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.js"></script>
+    <script src="core/main.js"></script>
+  </head>
+  <body>
+    <div style="z-index: 1500 !important;" class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <span class="brand">D5.2.2. - ADAPTIVE WIDGET CHOREOGRAPHY</span>
+        </div>
+      </div>
+    </div>
+    <div style="padding: 50px;" class="container">
+      <div class="tabbable">
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#tab1" data-toggle="tab">Resource 1</a></li>
+          <li><a href="#tab2" data-toggle="tab">Resource 2</a></li>
+        </ul>
+      </div>
+      <div class="tab-content">
+      <div class="tab-pane fade in active" id="tab1">
+        <div class="row portlet-container">
+          <div class="span5 portlet">
+            <div class="navbar navbar-fixed-top" style="position: absolute;">
+              <div class="navbar-inner">
+                <div class="container" style="width: auto; padding: 0 20px;">
+                  <a class="brand" href="#">COMMON</a>
+                  <ul class="nav actionbar pull-right">
+                    <li><a href="#" rel="tooltip" data-toggle="tooltip" data-placement="bottom" data-original-title="Hide/Show"><i class="icon-arrow-up"></i></a></li>
+                    <li><a href="#" rel="tooltip" data-toggle="tooltip" data-placement="bottom" data-original-title="Romve Portlet"><i class="icon-trash"></i></a></li>
+                    <li><a href="#" rel="tooltip" data-toggle="tooltip" data-placement="bottom" data-original-title="Add Property"><i class="icon-plus-sign"></i></a></li>
+                </div>
+              </div>
+            </div>
+            <div class="portlet-content">
+              <div data-content="rdf:type" class="portlet-entry">
+                <div class="control-group">
+                  <!-- <label class="control-label">rdf:type</label> -->
+                  <div class="controls">
+                    <div class="line input-prepend input-append">
+                      <span class="add-on">
+                        <i class="icon-bookmark" ></i>
+                      </span><input type="text" value="http://xmlns.com/foaf/0.1/Person" class="input resource-widget"><button class="btn" type="button"><i class="icon-plus-sign" ></i></button><button class="btn" type="button"><i class="icon-minus-sign" ></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div data-content="rdfs:label" class="portlet-entry">
+                <div class="control-group">
+                  <!-- <label class="control-label">rdf:type</label> -->
+                  <div class="controls">
+                    <div class="line input-prepend input-append">
+                      <span class="add-on">
+                        <i class="icon-bookmark" ></i>
+                      </span><input type="text" value="Foo Bar" class="input resource-widget"><button class="btn" type="button"><i class="icon-plus-sign" ></i></button><button class="btn" type="button"><i class="icon-minus-sign" ></i></button>
+                    </div>
+                    <div class="line input-prepend input-append">
+                      <span class="add-on">
+                        <i class="icon-bookmark" ></i>
+                      </span><input type="text" value="Lorem Ipsum" class="input resource-widget"><button class="btn" type="button"><i class="icon-plus-sign" ></i></button><button class="btn" type="button"><i class="icon-minus-sign" ></i></button>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="span5 portlet">
+            <div class="navbar navbar-fixed-top" style="position: absolute;">
+              <div class="navbar-inner">
+                <div class="container" style="width: auto; padding: 0 20px;">
+                  <a class="brand" href="#">FOAF</a>
+                  <ul class="nav actionbar pull-right">
+                    <li><a href="#" rel="tooltip" data-toggle="tooltip" data-placement="bottom" data-original-title="Hide/Show"><i class="icon-arrow-up"></i></a></li>
+                    <li><a href="#" rel="tooltip" data-toggle="tooltip" data-placement="bottom" data-original-title="Romve Portlet"><i class="icon-trash"></i></a></li>
+                    <li><a href="#" rel="tooltip" data-toggle="tooltip" data-placement="bottom" data-original-title="Add Property"><i class="icon-plus-sign"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="portlet-content">
+              <div data-content="foaf:name" class="portlet-entry">
+                <div class="control-group">
+                  <!-- <label class="control-label">rdf:type</label> -->
+                  <div class="controls">
+                    <div class="line input-prepend input-append">
+                      <span class="add-on">
+                        <i class="icon-bookmark" ></i>
+                      </span><input type="text" value="Max Mustermann" class="input"><button class="btn" type="button"><i class="icon-plus-sign" ></i></button><button class="btn" type="button"><i class="icon-minus-sign" ></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="span5 portlet">
+            <div class="navbar navbar-fixed-top" style="position: absolute;">
+              <div class="navbar-inner">
+                <div class="container" style="width: auto; padding: 0 20px;">
+                  <a class="brand" href="#">VCARD</a>
+                  <ul class="nav actionbar pull-right">
+                    <li><a href="#" rel="tooltip" data-toggle="tooltip" data-placement="bottom" data-original-title="Hide/Show"><i class="icon-arrow-up"></i></a></li>
+                    <li><a href="#" rel="tooltip" data-toggle="tooltip" data-placement="bottom" data-original-title="Romve Portlet"><i class="icon-trash"></i></a></li>
+                    <li><a href="#" rel="tooltip" data-toggle="tooltip" data-placement="bottom" data-original-title="Add Property"><i class="icon-plus-sign"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="portlet-content">
+              <div data-content="v:email" class="portlet-entry">
+                <div class="control-group">
+                  <!-- <label class="control-label">foaf:name</label> -->
+                  <div class="controls">
+                    <div class="line input-prepend input-append">
+                      <span class="add-on">
+                        <i class="icon-envelope" ></i>
+                      </span><input type="text" value="max.mustermann@muster.de" class="input"><button class="btn" type="button"><i class="icon-plus-sign" ></i></button><button class="btn" type="button"><i class="icon-minus-sign" ></i></button>
+                    </div>
+                    <div class="line input-prepend input-append">
+                      <span class="add-on">
+                        <i class="icon-envelope" ></i>
+                      </span><input type="text" value="foo@bar.com" class="input"><button class="btn" type="button"><i class="icon-plus-sign" ></i></button><button class="btn" type="button"><i class="icon-minus-sign" ></i></button>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="tab2">
+        <!-- tab 2-->
+      </div>
+    </div>
+    <!-- modal for add property -->
+   <div id="addProperty" class="modal hide fade">
+     <div class="modal-header">
+       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+       <h3>Add Property for Resource [placeholder]</h3>
+     </div>
+     <div class="modal-body">
+        <form class="form-horizontal">
+        <!-- <fieldset> -->
+          <div class="control-group">
+            <label class="control-label">Property URI</label>
+            <div class="controls">
+                <input type="text" placeholder="">
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label">Widget</label>
+            <div class="controls">
+              <button class="btn dropdown-toggle" data-toggle="dropdown">Choose</span></button>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label">Property Value</label>
+            <div class="controls">
+                <input type="text" placeholder="">
+            </div>
+          </div>
+        <!-- </fieldset> -->
+      </form>
+
+     </div>
+     <div class="modal-footer">
+       <a href="#" data-dismiss="modal" aria-hidden="true" class="btn">Cancel</a>
+       <a id="btn-addProperty" href="#" class="btn btn-primary">Add</a>
+     </div>
+   </div> 
+  </body>
+</html>
