@@ -13,10 +13,52 @@ function initTypeahead() {
 
 $(document).ready(function() {
   initTypeahead();
-
+  $('#rdfauthor-view').resizable().draggable({
+    handle: '.modal-header',
+    cursor: 'move'
+  }).modal('show');
   $('.portlet-container').sortable().disableSelection();
 
 
+
+  // markItUp settings
+var markItUpSettings = {
+    nameSpace: 'markdown', // Useful to prevent multi-instances CSS conflict
+    onShiftEnter: {keepDefault:false, openWith:'\n\n'},
+    returnParserData: function(data){
+        //added new callback in markItUp to use json markdown parser (in this case: showdown)
+        return self._converter.makeHtml(data);
+    },
+    markupSet: [
+        // {name:'First Level Heading', key:"1", placeHolder:'Your title here...',
+         // closeWith:function(markItUp) { return self._miu.markdownTitle(markItUp, '=') } },
+        // {name:'Second Level Heading', key:"2", placeHolder:'Your title here...',
+         // closeWith:function(markItUp) { return self._miu.markdownTitle(markItUp, '-') } },
+        // {name:'Heading 3', key:"3", openWith:'### ', placeHolder:'Your title here...' },
+        // {name:'Heading 4', key:"4", openWith:'#### ', placeHolder:'Your title here...' },
+        // {name:'Heading 5', key:"5", openWith:'##### ', placeHolder:'Your title here...' },
+        // {name:'Heading 6', key:"6", openWith:'###### ', placeHolder:'Your title here...' },
+        // {separator:'---------------' },
+        {name:'Bold', key:"B", openWith:'**', closeWith:'**'},
+        {name:'Italic', key:"I", openWith:'_', closeWith:'_'},
+        {separator:'---------------' },
+        {name:'Bulleted List', openWith:'- ' },
+        {name:'Numeric List', openWith:function(markItUp) {
+          return markItUp.line+'. ';
+        }},
+        {separator:'---------------' },
+        {name:'Picture', key:"P", replaceWith:'![[![Alternative text]!]]([![Url:!:http://]!] "[![Title]!]")'},
+        {name:'Link', key:"L", openWith:'[', closeWith:']([![Url:!:http://]!] "[![Title]!]")',
+         placeHolder:'Your text to link here...' },
+        // {separator:'---------------'},
+        // {name:'Quotes', openWith:'> '},
+        // {name:'Code Block / Code', openWith:'(!(\t|!|`)!)', closeWith:'(!(`)!)'},
+        {separator:'---------------'},
+        {name:'Preview', call:'preview', className:"preview"}
+    ]
+  };
+
+  $("#markItUp").markItUp(markItUpSettings);
   // $( ".portlet" )
     // .addClass( "ui-widget ui-widget-content ui-corner-all" )
     // .find( ".portlet-header" )
@@ -93,6 +135,28 @@ $(document).ready(function() {
     $('.portlet:first .portlet-content').append(markup);
     $('#addProperty').modal('toggle');
   });
+
+  $(".modal").on("resize", function(event, ui) {
+    ui.element.css("margin-left", -ui.size.width/2);
+    ui.element.css("margin-top", -ui.size.height/2);
+    ui.element.css("top", "50%");
+    ui.element.css("left", "50%");
+    $(ui.element).find(".modal-body").each(function() {
+      var maxHeight = ui.size.height-$('.modal-header').outerHeight()-$('.modal-footer').outerHeight();
+      $(this).css("max-height", maxHeight);
+    });
+  });
+
+  $('.settings').hover(function() {
+    $(this).fadeTo(1,1);
+  },function() {
+    if($(this).parents('li').hasClass('open')) {
+      $(this).fadeTo(1,1);
+    } else {
+      $(this).fadeTo(1,0);
+    }  
+  });
+
   // $( ".portlet-entry" )
     // .addClass( "ui-widget ui-widget-content ui-corner-all" )
     // .find( ".portlet-header" )

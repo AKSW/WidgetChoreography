@@ -62,3 +62,25 @@
 .portlet-minimized .portlet-content { display: none !important; }
 .ui-sortable-placeholder { border: 1px dotted black; visibility: visible !important; height: 50px !important; }
 .ui-sortable-placeholder * { visibility: hidden; }
+
+.ui-resizable-s {
+  bottom: 0;
+}
+.ui-resizable-e {
+  right: 0;
+}
+
+/* #rdfauthor-view { */
+  /* width: 700px; */
+  /* [> height: 700px; <] */
+/* } */
+
+#rdfauthor-view .settings {
+  visibility: visible;
+  opacity:0;
+  filter:alpha(opacity=0);
+}
+
+#rdfauthor-view .visible {
+  visibility: visible;
+}
