@@ -39,7 +39,12 @@
               <li class="active">
                 <a href="#tab1" data-toggle="tab">Resource 1<i class="icon-cog settings"></i></a>
               </li>
-              <li><a href="#tab2" data-toggle="tab">Resource 2<i class="icon-cog settings"></i></a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Resource 2<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#" data-toggle="tab"><i class="icon-pencil"></i> Rename</a></li>
+                </ul>
+              </li>
             </ul>
           </div>
           <div class="tab-content">
@@ -51,12 +56,12 @@
                     <div class="container" style="width: auto; padding: 0 20px;">
                       <a class="brand" href="#">COMMON</a>
                       <ul class="nav actionbar pull-right">
-                        <li id="fat-menu" class="dropdown">
-                          <a href="#" id="drop3" role="button" class="dropdown-toggle settings" data-toggle="dropdown"><i class="icon-cog"></i></a>
-                          <ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="icon-arrow-up" style="padding-right: 5px;"></i>Hide/Show</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="icon-trash" style="padding-right: 5px;"></i>Remove Portlet</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="icon-plus-sign" style="padding-right: 5px;"></i>Add Property</a></li>
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle settings" data-toggle="dropdown"><i class="icon-cog"></i></a>
+                          <ul class="dropdown-menu">
+                            <li><a class="hide-show" href="#"><i class="icon-arrow-up" style="padding-right: 5px;"></i>Hide/Show</a></li>
+                            <li><a class="remove" href="#"><i class="icon-trash" style="padding-right: 5px;"></i>Remove Portlet</a></li>
+                            <li><a class="add" href="#"><i class="icon-plus-sign" style="padding-right: 5px;"></i>Add Property</a></li>
                           </ul>
                         </li>
                       </ul>
@@ -71,7 +76,16 @@
                         <div class="line input-prepend input-append">
                           <span class="add-on">
                             <i class="icon-bookmark" ></i>
-                          </span><input type="text" value="http://xmlns.com/foaf/0.1/Person" class="input-large resource-widget"><button class="btn" type="button" ><i class="icon-cog" ></i></button>
+                          </span><input type="text" value="http://xmlns.com/foaf/0.1/Person" class="input-large resource-widget">
+                          <div class="btn-group">
+                            <button class="btn dropdown-toggle" data-toggle="dropdown">
+                              <i class="icon-cog" ></i>
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li><a class="object-create" href="#"><i class="icon-plus-sign" style="padding-right: 5px;"></i>Create</a></li>
+                              <li><a class="object-remove" href="#"><i class="icon-trash" style="padding-right: 5px;"></i>Remove</a></li>
+                            </ul>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -84,14 +98,33 @@
                         <div class="line input-prepend input-append">
                           <span class="add-on">
                             <i class="icon-bookmark" ></i>
-                            </span><input type="text" value="Foo Bar" class="input resource-widget"><button class="btn" type="button" ><i class="icon-cog" ></i></button>
+                            </span><input type="text" value="Foo Bar" class="input literal-widget">
+                            <div class="btn-group">
+                              <button class="btn dropdown-toggle" data-toggle="dropdown">
+                                <i class="icon-cog" ></i>
+                              </button>
+                              <ul class="dropdown-menu">
+                                <li><a class="object-language" href="#"><i class="icon-globe" style="padding-right: 5px;"></i>Language</a></li>
+                                <li><a class="object-datatype" href="#"><i class="icon-tag" style="padding-right: 5px;"></i>Datatype</a></li>
+                                <li><a class="object-remove" href="#"><i class="icon-trash" style="padding-right: 5px;"></i>Remove</a></li>
+                              </ul>
+                            </div>
                         </div>
                         <div class="line input-prepend input-append">
                           <span class="add-on">
                             <i class="icon-bookmark" ></i>
-                          </span><input type="text" value="Lorem Ipsum" class="input resource-widget"><button class="btn" type="button" ><i class="icon-cog" ></i></button>
+                            </span><input type="text" value="Lorem Ipsum" class="input literal-widget">
+                            <div class="btn-group">
+                              <button class="btn dropdown-toggle" data-toggle="dropdown">
+                                <i class="icon-cog" ></i>
+                              </button>
+                              <ul class="dropdown-menu">
+                                <li><a class="object-language" href="#"><i class="icon-globe" style="padding-right: 5px;"></i>Language</a></li>
+                                <li><a class="object-remove" href="#"><i class="icon-tag" style="padding-right: 5px;"></i>Datatype</a></li>
+                                <li><a class="object-remove" href="#"><i class="icon-trash" style="padding-right: 5px;"></i>Remove</a></li>
+                              </ul>
+                            </div>
                         </div>
-
                       </div>
                     </div>
                   </div>
@@ -103,12 +136,12 @@
                     <div class="container" style="width: auto; padding: 0 20px;">
                       <a class="brand" href="#">GEO-TAG</a>
                       <ul class="nav actionbar pull-right">
-                        <li id="fat-menu" class="dropdown">
-                          <a href="#" id="drop3" role="button" class="dropdown-toggle settings" data-toggle="dropdown"><i class="icon-cog"></i></a>
-                          <ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="icon-arrow-up" style="padding-right: 5px;"></i>Hide/Show</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="icon-trash" style="padding-right: 5px;"></i>Remove Portlet</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="icon-plus-sign" style="padding-right: 5px;"></i>Add Property</a></li>
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle settings" data-toggle="dropdown"><i class="icon-cog"></i></a>
+                          <ul class="dropdown-menu">
+                            <li><a class="hide-show" href="#"><i class="icon-arrow-up" style="padding-right: 5px;"></i>Hide/Show</a></li>
+                            <li><a class="remove" href="#"><i class="icon-trash" style="padding-right: 5px;"></i>Remove Portlet</a></li>
+                            <li><a class="add" href="#"><i class="icon-plus-sign" style="padding-right: 5px;"></i>Add Property</a></li>
                           </ul>
                         </li>
                       </ul>
@@ -151,12 +184,12 @@
                     <div class="container" style="width: auto; padding: 0 20px;">
                       <a class="brand" href="#">DESCRIPTION EDITING</a>
                       <ul class="nav actionbar pull-right">
-                        <li id="fat-menu" class="dropdown">
-                          <a href="#" id="drop3" role="button" class="dropdown-toggle settings" data-toggle="dropdown"><i class="icon-cog"></i></a>
-                          <ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="icon-arrow-up" style="padding-right: 5px;"></i>Hide/Show</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="icon-trash" style="padding-right: 5px;"></i>Remove Portlet</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="icon-plus-sign" style="padding-right: 5px;"></i>Add Property</a></li>
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle settings" data-toggle="dropdown"><i class="icon-cog"></i></a>
+                          <ul class="dropdown-menu">
+                            <li><a class="hide-show" href="#"><i class="icon-arrow-up" style="padding-right: 5px;"></i>Hide/Show</a></li>
+                            <li><a class="remove" href="#"><i class="icon-trash" style="padding-right: 5px;"></i>Remove Portlet</a></li>
+                            <li><a class="add" href="#"><i class="icon-plus-sign" style="padding-right: 5px;"></i>Add Property</a></li>
                           </ul>
                         </li>
                       </ul>
@@ -168,7 +201,7 @@
                     <div class="control-group">
                       <!-- <label class="control-label">rdf:type</label> -->
                       <div class="controls">
-                        <textarea id="markItUp" cols="5"></textarea>
+                        <textarea id="markItUp" cols="10"></textarea>
                       </div>
                     </div>
                   </div>
@@ -181,12 +214,12 @@
                     <div class="container" style="width: auto; padding: 0 20px;">
                       <a class="brand" href="#">FOAF</a>
                       <ul class="nav actionbar pull-right">
-                        <li id="fat-menu" class="dropdown">
-                          <a href="#" id="drop3" role="button" class="dropdown-toggle settings" data-toggle="dropdown"><i class="icon-cog"></i></a>
-                          <ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="icon-arrow-up" style="padding-right: 5px;"></i>Hide/Show</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="icon-trash" style="padding-right: 5px;"></i>Remove Portlet</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="icon-plus-sign" style="padding-right: 5px;"></i>Add Property</a></li>
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle settings" data-toggle="dropdown"><i class="icon-cog"></i></a>
+                          <ul class="dropdown-menu">
+                            <li><a class="hide-show" href="#"><i class="icon-arrow-up" style="padding-right: 5px;"></i>Hide/Show</a></li>
+                            <li><a class="remove" href="#"><i class="icon-trash" style="padding-right: 5px;"></i>Remove Portlet</a></li>
+                            <li><a class="add" href="#"><i class="icon-plus-sign" style="padding-right: 5px;"></i>Add Property</a></li>
                           </ul>
                         </li>
                       </ul>
@@ -201,7 +234,17 @@
                         <div class="line input-prepend input-append">
                           <span class="add-on">
                             <i class="icon-bookmark" ></i>
-                            </span><input type="text" value="Max Mustermann" class="input"><button class="btn" type="button" ><i class="icon-cog" ></i></button>
+                            </span><input type="text" value="Max Mustermann" class="input literal-widget">
+                            <div class="btn-group">
+                              <button class="btn dropdown-toggle" data-toggle="dropdown">
+                                <i class="icon-cog" ></i>
+                              </button>
+                              <ul class="dropdown-menu">
+                                <li><a class="object-language" href="#"><i class="icon-globe" style="padding-right: 5px;"></i>Language</a></li>
+                                <li><a class="object-remove" href="#"><i class="icon-tag" style="padding-right: 5px;"></i>Datatype</a></li>
+                                <li><a class="object-remove" href="#"><i class="icon-trash" style="padding-right: 5px;"></i>Remove</a></li>
+                              </ul>
+                            </div>
                         </div>
                       </div>
                     </div>
@@ -214,12 +257,12 @@
                     <div class="container" style="width: auto; padding: 0 20px;">
                       <a class="brand" href="#">VCARD</a>
                       <ul class="nav actionbar pull-right">
-                        <li id="fat-menu" class="dropdown">
-                          <a href="#" id="drop3" role="button" class="dropdown-toggle settings" data-toggle="dropdown"><i class="icon-cog"></i></a>
-                          <ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="icon-arrow-up" style="padding-right: 5px;"></i>Hide/Show</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="icon-trash" style="padding-right: 5px;"></i>Remove Portlet</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="icon-plus-sign" style="padding-right: 5px;"></i>Add Property</a></li>
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle settings" data-toggle="dropdown"><i class="icon-cog"></i></a>
+                          <ul class="dropdown-menu">
+                            <li><a class="hide-show" href="#"><i class="icon-arrow-up" style="padding-right: 5px;"></i>Hide/Show</a></li>
+                            <li><a class="remove" href="#"><i class="icon-trash" style="padding-right: 5px;"></i>Remove Portlet</a></li>
+                            <li><a class="add" href="#"><i class="icon-plus-sign" style="padding-right: 5px;"></i>Add Property</a></li>
                           </ul>
                         </li>
                       </ul>
@@ -241,7 +284,6 @@
                             <i class="icon-envelope" ></i>
                           </span><input type="text" value="foo@bar.com" class="input"><button class="btn" type="button" ><i class="icon-cog" ></i></button>
                         </div>
-
                       </div>
                     </div>
                   </div>
