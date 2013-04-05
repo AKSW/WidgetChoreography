@@ -186,6 +186,19 @@ $(document).ready(function() {
       $(this).fadeTo(1,0);
     }  
   });
+    
+  $(document).on('click', '.tabs', function(event) {
+    event.preventDefault();
+    console.log('left click on tab', $(this));
+    $(this).tab('show');
+    // $(this).parent().dropdown('toggle');
+  });
+
+  $(document).on('contextmenu', '.tabs', function(event) {
+    event.preventDefault();
+    console.log('right click on tab', $(this));
+    $(this).parents('.dropdown').toggleClass('open');
+  });
 
   // $( ".portlet-entry" )
     // .addClass( "ui-widget ui-widget-content ui-corner-all" )

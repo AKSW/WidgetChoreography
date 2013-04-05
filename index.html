@@ -36,11 +36,19 @@
         <div class="modal-body">
           <div class="tabbable">
             <ul class="nav nav-tabs">
-              <li class="active">
-                <a href="#tab1" data-toggle="tab">Resource 1<i class="icon-cog settings"></i></a>
+              <!--li class="active">
+                <a class="tabs" href="#tab1" >Resource 1<i class="icon-cog settings"></i></a>
+              </li-->
+
+              <li class="dropdown active">
+                <a href="#tab1" class="tabs dropdown-toggle">Resource 1<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#" data-toggle="tab"><i class="icon-pencil"></i> Rename</a></li>
+                </ul>
               </li>
+
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Resource 2<b class="caret"></b></a>
+                <a href="#tab2" class="tabs dropdown-toggle">Resource 2<b class="caret"></b></a>
                 <ul class="dropdown-menu">
                   <li><a href="#" data-toggle="tab"><i class="icon-pencil"></i> Rename</a></li>
                 </ul>
