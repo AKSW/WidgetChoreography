@@ -84,3 +84,7 @@
 #rdfauthor-view .visible {
   visibility: visible;
 }
+
+.dropdown-menu {
+  min-width: 0px !important;
+}
