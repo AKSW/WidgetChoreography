@@ -88,3 +88,32 @@
 .dropdown-menu {
   min-width: 0px !important;
 }
+
+.input-fullsize {
+  width: 100%;
+}
+
+.input-custom {
+  height: 10px !important;
+  margin-left: 6px;
+  margin-right: 6px;
+}
+
+.checkbox-submenu {
+  margin-right: 6px;
+  margin-left: 6px;
+}
+
+.dropdown-set {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #646D7E !important;
+  background-image: -moz-linear-gradient(top, #646D7E, #6D7B8D);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#646D7E), to(#6D7B8D));
+  background-image: -webkit-linear-gradient(top, #646D7E, #6D7B8D);
+  background-image: -o-linear-gradient(top, #646D7E, #6D7B8D);
+  background-image: linear-gradient(to bottom, #646D7E, #6D7B8D);
+  background-repeat: repeat-x;
+  outline: 0;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#646D7E', endColorstr='#6D7B8D', GradientType=0);
+}

@@ -177,16 +177,23 @@ $(document).ready(function() {
     });
   });
 
-  $('.settings').hover(function() {
-    $(this).fadeTo(1,1);
+  $('.portlet').hover(function() {
+    $(this).find('.settings').fadeTo(1,1);
   },function() {
     if($(this).parents('li').hasClass('open')) {
-      $(this).fadeTo(1,1);
+      $(this).find('.settings').fadeTo(1,1);
     } else {
-      $(this).fadeTo(1,0);
+      $(this).find('.settings').fadeTo(1,0);
     }  
   });
-    
+
+  $('.tabs').hover(function() {
+    $(this).find('.settings').fadeTo(1,1);
+  },function() {
+    $(this).find('.settings').fadeTo(1,0);
+  });
+
+
   $(document).on('click', '.tabs', function(event) {
     event.preventDefault();
     console.log('left click on tab', $(this));
@@ -194,10 +201,29 @@ $(document).ready(function() {
     // $(this).parent().dropdown('toggle');
   });
 
-  $(document).on('contextmenu', '.tabs', function(event) {
+  $(document).on('click', '.tabs i', function(event) {
     event.preventDefault();
     console.log('right click on tab', $(this));
     $(this).parents('.dropdown').toggleClass('open');
+  });
+
+  $(document).on('click', '.input-custom', function(event) {
+    event.preventDefault();
+    console.log('click', $(this));
+    $(this).parens('.btn-group').addClass('open');
+  });
+
+  $(document).on('click', '.checkbox-submenu', function(event) {
+    console.log('click', $(this));
+    $(this).parens('.btn-group').addClass('open');
+  });
+
+  $('.portlet .image').parents('.input-prepend').popover({
+    trigger: 'hover',
+    placement: 'top',
+    html: true,
+    title: 'Preview',
+    content: '<img src="img/leipzig2.gif" />'
   });
 
   // $( ".portlet-entry" )

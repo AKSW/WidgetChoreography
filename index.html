@@ -41,14 +41,14 @@
               </li-->
 
               <li class="dropdown active">
-                <a href="#tab1" class="tabs dropdown-toggle">Resource 1<b class="caret"></b></a>
+              <a href="#tab1" class="tabs dropdown-toggle">Resource 1<i class="icon-cog settings"></i></a>
                 <ul class="dropdown-menu">
                   <li><a href="#" data-toggle="tab"><i class="icon-pencil"></i> Rename</a></li>
                 </ul>
               </li>
 
               <li class="dropdown">
-                <a href="#tab2" class="tabs dropdown-toggle">Resource 2<b class="caret"></b></a>
+                <a href="#tab2" class="tabs dropdown-toggle">Resource 2<i class="icon-cog settings"></i></a>
                 <ul class="dropdown-menu">
                   <li><a href="#" data-toggle="tab"><i class="icon-pencil"></i> Rename</a></li>
                 </ul>
@@ -84,13 +84,36 @@
                         <div class="line input-prepend input-append">
                           <span class="add-on">
                             <i class="icon-bookmark" ></i>
-                          </span><input type="text" value="http://xmlns.com/foaf/0.1/Person" class="input-large resource-widget">
+                          </span><input type="text" value="http://xmlns.com/foaf/0.1/Person" class="input-fullsize resource-widget">
                           <div class="btn-group">
                             <button class="btn dropdown-toggle" data-toggle="dropdown">
                               <i class="icon-cog" ></i>
                             </button>
                             <ul class="dropdown-menu">
-                              <li><a class="object-create" href="#"><i class="icon-plus-sign" style="padding-right: 5px;"></i>Create</a></li>
+                              <li class="dropdown-submenu">
+                                <a class="object-source" tabindex="-1" href="#"><i class="icon-search" style="padding-right: 5px;"></i>Source</a>
+                                <ul class="dropdown-menu">
+                                  <li>
+                                    <label class="checkbox checkbox-submenu">
+                                      <input type="checkbox" checked value="">
+                                      Local
+                                    </label>
+                                  </li>
+                                  <li>
+                                    <label class="checkbox checkbox-submenu">
+                                      <input type="checkbox" value="">
+                                      Sindice
+                                    </label>
+                                  </li>
+                                  <li>
+                                    <label class="checkbox checkbox-submenu">
+                                      <input type="checkbox" value="">
+                                      DBpedia
+                                    </label>
+                                  </li>
+                                </ul>
+                              </li>
+                              <li><a class="object-create" href="#"><i class="icon-plus-sign" style="padding-right: 5px;"></i>New Resource</a></li>
                               <li><a class="object-remove" href="#"><i class="icon-trash" style="padding-right: 5px;"></i>Remove</a></li>
                             </ul>
                           </div>
@@ -106,7 +129,7 @@
                         <div class="line input-prepend input-append">
                           <span class="add-on">
                             <i class="icon-bookmark" ></i>
-                            </span><input type="text" value="Max Mustermann" class="input literal-widget">
+                            </span><input type="text" value="Max Mustermann" class="input input-fullsize literal-widget">
                             <div class="btn-group">
                               <button class="btn dropdown-toggle" data-toggle="dropdown">
                                 <i class="icon-cog" ></i>
@@ -122,7 +145,7 @@
                                     <li><a tabindex="-1" href="#">fr</a></li>
                                     <li><a tabindex="-1" href="#">it</a></li>
                                     <li class="divider"></li>
-                                    <li><a tabindex="-1" href="#">custom</a></li>
+                                    <li><input type="text" class="input-small input-custom" placeholder="custom lang"></li>
                                   </ul>
                                 </li>
                                 <li class="dropdown-submenu">
@@ -136,13 +159,57 @@
                                     <li><a tabindex="-1" href="#">xsd:date</a></li>
                                     <li><a tabindex="-1" href="#">xsd:time</a></li>
                                     <li class="divider"></li>
-                                    <li><a tabindex="-1" href="#">custom</a></li>
+                                    <li><input type="text" class="input-small input-custom" placeholder="custom type"></li>
                                   </ul>
                                 </li>
                                 <!-- <li><a class="object-remove" href="#"><i class="icon-tag" style="padding-right: 5px;"></i>Datatype</a></li> -->
                                 <li><a class="object-remove" href="#"><i class="icon-trash" style="padding-right: 5px;"></i>Remove</a></li>
                               </ul>
                             </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div data-content="foaf:depiction" class="portlet-entry">
+                    <div class="control-group">
+                      <!-- <label class="control-label">rdf:type</label> -->
+                      <div class="controls">
+                        <div class="line input-prepend input-append">
+                          <span class="add-on">
+                            <i class="icon-picture" ></i>
+                          </span><input type="text" value="http://max.mustermann.name/pic.png" class="input-fullsize resource-widget image">
+                          <div class="btn-group">
+                            <button class="btn dropdown-toggle" data-toggle="dropdown">
+                              <i class="icon-cog" ></i>
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li class="dropdown-submenu">
+                                <a class="object-source" tabindex="-1" href="#"><i class="icon-search" style="padding-right: 5px;"></i>Source</a>
+                                <ul class="dropdown-menu">
+                                  <li>
+                                    <label class="checkbox checkbox-submenu">
+                                      <input type="checkbox" checked value="">
+                                      Picasa
+                                    </label>
+                                  </li>
+                                  <li>
+                                    <label class="checkbox checkbox-submenu">
+                                      <input type="checkbox" value="">
+                                      Google Pictures
+                                    </label>
+                                  </li>
+                                  <li>
+                                    <label class="checkbox checkbox-submenu">
+                                      <input type="checkbox" value="">
+                                      Flicker
+                                    </label>
+                                  </li>
+                                </ul>
+                              </li>
+                              <li><a class="object-create" href="#"><i class="icon-plus-sign" style="padding-right: 5px;"></i>New Resource</a></li>
+                              <li><a class="object-remove" href="#"><i class="icon-trash" style="padding-right: 5px;"></i>Remove</a></li>
+                            </ul>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -154,7 +221,7 @@
                         <div class="line input-prepend input-append">
                           <span class="add-on">
                             <i class="icon-bookmark" ></i>
-                            </span><input type="text" value="Foo Bar" class="input literal-widget">
+                            </span><input type="text" value="Foo Bar" class="input input-fullsize literal-widget">
                             <div class="btn-group">
                               <button class="btn dropdown-toggle" data-toggle="dropdown">
                                 <i class="icon-cog" ></i>
@@ -170,13 +237,13 @@
                                     <li><a tabindex="-1" href="#">fr</a></li>
                                     <li><a tabindex="-1" href="#">it</a></li>
                                     <li class="divider"></li>
-                                    <li><a tabindex="-1" href="#">custom</a></li>
+                                    <li><input type="text" class="input-small input-custom" placeholder="custom lang"></li>
                                   </ul>
                                 </li>
                                 <li class="dropdown-submenu">
-                                  <a class="object-datatype" tabindex="-1" href="#"><i class="icon-tag" style="padding-right: 5px;"></i>Datatype</a>
+                                  <a class="object-datatype dropdown-set" tabindex="-1" href="#"><i class="icon-tag" style="padding-right: 5px;"></i>Datatype</a>
                                   <ul class="dropdown-menu">
-                                    <li><a tabindex="-1" href="#">xsd:string</a></li>
+                                    <li class="dropdown-set"><a tabindex="-1" href="#">xsd:string</a></li>
                                     <li><a tabindex="-1" href="#">xsd:decimal</a></li>
                                     <li><a tabindex="-1" href="#">xsd:integer</a></li>
                                     <li><a tabindex="-1" href="#">xsd:float</a></li>
@@ -184,7 +251,7 @@
                                     <li><a tabindex="-1" href="#">xsd:date</a></li>
                                     <li><a tabindex="-1" href="#">xsd:time</a></li>
                                     <li class="divider"></li>
-                                    <li><a tabindex="-1" href="#">custom</a></li>
+                                    <li><input type="text" class="input-small input-custom" placeholder="custom type"></li>
                                   </ul>
                                 </li>
                                 <!-- <li><a class="object-remove" href="#"><i class="icon-tag" style="padding-right: 5px;"></i>Datatype</a></li> -->
@@ -195,7 +262,7 @@
                         <div class="line input-prepend input-append">
                           <span class="add-on">
                             <i class="icon-bookmark" ></i>
-                            </span><input type="text" value="Lorem Ipsum" class="input literal-widget">
+                            </span><input type="text" value="Lorem Ipsum" class="input input-fullsize literal-widget">
                             <div class="btn-group">
                               <button class="btn dropdown-toggle" data-toggle="dropdown">
                                 <i class="icon-cog" ></i>
@@ -211,7 +278,7 @@
                                     <li><a tabindex="-1" href="#">fr</a></li>
                                     <li><a tabindex="-1" href="#">it</a></li>
                                     <li class="divider"></li>
-                                    <li><a tabindex="-1" href="#">custom</a></li>
+                                    <li><input type="text" class="input-small input-custom" placeholder="custom lang"></li>
                                   </ul>
                                 </li>
                                 <li class="dropdown-submenu">
@@ -225,7 +292,7 @@
                                     <li><a tabindex="-1" href="#">xsd:date</a></li>
                                     <li><a tabindex="-1" href="#">xsd:time</a></li>
                                     <li class="divider"></li>
-                                    <li><a tabindex="-1" href="#">custom</a></li>
+                                    <li><input type="text" class="input-small input-custom" placeholder="custom type"></li>
                                   </ul>
                                 </li>
                                 <!-- <li><a class="object-remove" href="#"><i class="icon-tag" style="padding-right: 5px;"></i>Datatype</a></li> -->
@@ -267,7 +334,7 @@
                         <div class="line input-prepend input-append">
                           <span class="add-on">
                             <i class="icon-bookmark" ></i>
-                          </span><input type="text" value="12.37475" class="input resource-widget"><button class="btn" type="button" ><i class="icon-cog" ></i></button>
+                          </span><input type="text" value="12.37475" class="input input-fullsize resource-widget"><button class="btn" type="button" ><i class="icon-cog" ></i></button>
                         </div>
                       </div>
                     </div>
@@ -279,7 +346,7 @@
                         <div class="line input-prepend input-append">
                           <span class="add-on">
                             <i class="icon-bookmark" ></i>
-                          </span><input type="text" value="51.340333" class="input resource-widget"><button class="btn" type="button" ><i class="icon-cog" ></i></button>
+                          </span><input type="text" value="51.340333" class="input input-fullsize resource-widget"><button class="btn" type="button" ><i class="icon-cog" ></i></button>
                         </div>
                       </div>
                     </div>
@@ -342,7 +409,7 @@
                         <div class="line input-prepend input-append">
                           <span class="add-on">
                             <i class="icon-bookmark" ></i>
-                            </span><input type="text" value="Max Mustermann" class="input literal-widget">
+                            </span><input type="text" value="Max Mustermann" class="input input-fullsize literal-widget">
                             <div class="btn-group">
                               <button class="btn dropdown-toggle" data-toggle="dropdown">
                                 <i class="icon-cog" ></i>
@@ -358,7 +425,7 @@
                                     <li><a tabindex="-1" href="#">fr</a></li>
                                     <li><a tabindex="-1" href="#">it</a></li>
                                     <li class="divider"></li>
-                                    <li><a tabindex="-1" href="#">custom</a></li>
+                                    <li><input type="text" class="input-small input-custom" placeholder="custom lang"></li>
                                   </ul>
                                 </li>
                                 <li class="dropdown-submenu">
@@ -372,7 +439,7 @@
                                     <li><a tabindex="-1" href="#">xsd:date</a></li>
                                     <li><a tabindex="-1" href="#">xsd:time</a></li>
                                     <li class="divider"></li>
-                                    <li><a tabindex="-1" href="#">custom</a></li>
+                                    <li><input type="text" class="input-small input-custom" placeholder="custom type"></li>
                                   </ul>
                                 </li>
                                 <!-- <li><a class="object-remove" href="#"><i class="icon-tag" style="padding-right: 5px;"></i>Datatype</a></li> -->
@@ -411,12 +478,12 @@
                         <div class="line input-prepend input-append">
                           <span class="add-on">
                             <i class="icon-envelope" ></i>
-                          </span><input type="text" value="max.mustermann@muster.de" class="input"><button class="btn" type="button" ><i class="icon-cog" ></i></button>
+                          </span><input type="text" value="max.mustermann@muster.de" class="input input-fullsize"><button class="btn" type="button" ><i class="icon-cog" ></i></button>
                         </div>
                         <div class="line input-prepend input-append">
                           <span class="add-on">
                             <i class="icon-envelope" ></i>
-                          </span><input type="text" value="foo@bar.com" class="input"><button class="btn" type="button" ><i class="icon-cog" ></i></button>
+                          </span><input type="text" value="foo@bar.com" class="input input-fullsize"><button class="btn" type="button" ><i class="icon-cog" ></i></button>
                         </div>
                       </div>
                     </div>
