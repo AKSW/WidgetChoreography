@@ -226,6 +226,13 @@ $(document).ready(function() {
     content: '<img src="img/leipzig2.gif" />'
   });
 
+
+  $(document).on('click', '.modal-header button', function(event) {
+    if ($(this).hasClass('icon-fullscreen')) {
+      console.log('click fullscreen', $('.modal').css(['width', 'height']));
+    }
+  });
+
   // $( ".portlet-entry" )
     // .addClass( "ui-widget ui-widget-content ui-corner-all" )
     // .find( ".portlet-header" )
