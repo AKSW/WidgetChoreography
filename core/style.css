@@ -118,7 +118,7 @@
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#646D7E', endColorstr='#6D7B8D', GradientType=0);
 }
 
-.fullscreen {
+.icon-modal-header {
   float: right;
   padding-right: 5px;
   cursor: pointer;
@@ -126,7 +126,7 @@
   border: 0;
   -webkit-appearance: none;
   float: right;
-  font-size: 11px;
+  font-size: 15px;
   font-weight: bold;
   line-height: 20px;
   color: #000000;
@@ -135,8 +135,8 @@
   filter: alpha(opacity=20);
 }
 
-.fullscreen:hover,
-.fullscreen:focus {
+.icon-modal-header:hover,
+.icon-modal-header:focus {
   color: #000000;
   text-decoration: none;
   cursor: pointer;
@@ -144,7 +144,7 @@
   filter: alpha(opacity=40);
 }
 
-.modal-header .fullscreen {
+.modal-header .icon-modal-header {
   margin-top: 5px;
 }
 
