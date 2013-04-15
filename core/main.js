@@ -280,10 +280,25 @@ $(document).ready(function() {
     // $(this).parent().dropdown('toggle');
   });
 
+  var openTabDropdown = false;
+  var tabDropdown = $('.tabs .dropdown');
   $(document).on('click', '.tabs i', function(event) {
     event.preventDefault();
-    console.log('right click on tab', $(this));
-    $(this).parents('.dropdown').toggleClass('open');
+    tabDropdown = $(this).parents('.dropdown');
+    tabDropdown.toggleClass('open');
+  });
+
+  // manually open close dropdown on tabs' dropdown
+  $('html').unbind('click').click(function(event){
+    if ($('.nav-tabs li').hasClass('open') && openTabDropdown == false) {
+      $('.nav-tabs li').removeClass('open');
+    }
+  });
+  $('.nav-tabs .dropdown-menu').mouseover(function() {
+    openTabDropdown = true;
+  });
+  $('.nav-tabs .dropdown-menu').mouseout(function() {
+    openTabDropdown = false;
   });
 
   $(document).on('click', '.input-custom', function(event) {
