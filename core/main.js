@@ -11,6 +11,20 @@ function initTypeahead() {
 
 }
 
+function resizeModal() {
+  var modal = $('.modal');
+  modal.css("margin-left", -modal.width()/2);
+  modal.css("margin-top", -modal.height()/2);
+  modal.css("top", "50%");
+  modal.css("left", "50%");
+  modal.find(".modal-body").each(function() {
+    var maxHeight = modal.height()-$('.modal-header').outerHeight()-$('.modal-footer').outerHeight();
+    console.log('max-height', maxHeight);
+    $(this).css("max-height", maxHeight);
+    $(this).find('.tab-pane').css('height', maxHeight);
+  });
+}
+
 $(document).ready(function() {
   initTypeahead();
   $('#rdfauthor-view').resizable().draggable({
@@ -167,15 +181,32 @@ $(document).ready(function() {
   });
 
   $(".modal").on("resize", function(event, ui) {
-    ui.element.css("margin-left", -ui.size.width/2);
-    ui.element.css("margin-top", -ui.size.height/2);
-    ui.element.css("top", "50%");
-    ui.element.css("left", "50%");
+    console.log('ui',ui);
+    // ui.element.css("margin-left", -ui.size.width/2);
+    // ui.element.css("margin-top", -ui.size.height/2);
+    // ui.element.css("top", "50%");
+    // ui.element.css("left", "50%");
     $(ui.element).find(".modal-body").each(function() {
       var maxHeight = ui.size.height-$('.modal-header').outerHeight()-$('.modal-footer').outerHeight();
       $(this).css("max-height", maxHeight);
+      $(this).find('.tab-pane').css('height', maxHeight-$('.modal-footer').outerHeight());
     });
   });
+
+  //tab show
+  // $(".modal").on("show", function() {
+    // console.log('ui',$(this).height());
+    // $(this).resizable('destroy');
+    // $(this).css("margin-left", -$(this).width()/2);
+    // $(this).css("margin-top", -$(this).height()/2);
+    // $(this).css("top", "50%");
+    // $(this).css("left", "50%");
+    // $(this).find(".modal-body").each(function() {
+      // var maxHeight = $(this).height()-$('.modal-header').outerHeight()-$('.modal-footer').outerHeight();
+      // console.log('max-height', maxHeight);
+      // $(this).css("max-height", maxHeight);
+    // });
+  // });
 
   $('.portlet').hover(function() {
     $(this).find('.settings').fadeTo(1,1);
