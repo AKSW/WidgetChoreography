@@ -94,7 +94,7 @@
 }
 
 .input-custom {
-  height: 10px !important;
+  /* height: 10px !important; */
   margin-left: 6px;
   margin-right: 6px;
 }
