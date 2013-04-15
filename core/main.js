@@ -11,22 +11,67 @@ function initTypeahead() {
 
 }
 
-function resizeModal() {
-  var modal = $('.modal');
-  modal.css("margin-left", -modal.width()/2);
-  modal.css("margin-top", -modal.height()/2);
-  modal.css("top", "50%");
-  modal.css("left", "50%");
-  modal.find(".modal-body").each(function() {
-    var maxHeight = modal.height()-$('.modal-header').outerHeight()-$('.modal-footer').outerHeight();
-    console.log('max-height', maxHeight);
-    $(this).css("max-height", maxHeight);
-    $(this).find('.tab-pane').css('height', maxHeight);
-  });
+function toggleFullscreen() {
+  var modal = $('#rdfauthor-view');
+  modal.toggleClass('fullscreen');
+  if (modal.hasClass('fullscreen')) {
+    modal.draggable('option', 'disabled', true);
+    modal.resizable('option', 'disabled', true);
+    modal.css('width', '100%');
+    modal.css('height', '100%');
+    modal.css("margin-left", -modal.outerWidth()/2);
+    modal.css("margin-top", -modal.outerHeight()/2);
+    modal.css("top", "50%");
+    modal.css("left", "50%");
+    modal.find(".modal-body").each(function() {
+      var maxHeight = modal.height()-$('.modal-header').outerHeight()-$('.modal-footer').outerHeight()-20;
+      $(this).css("max-height", maxHeight);
+      $(this).find('.tab-pane').css('height', maxHeight);
+      $(this).find('.tab-pane').css('height', maxHeight-$('.modal-footer').outerHeight());
+    });
+  } else {
+    var modalSize = modal.data('modalSize');
+    modal.draggable('option', 'disabled', false);
+    modal.resizable('option', 'disabled', false);
+    modal.css('width', modalSize.modal.width);
+    modal.css('height',modalSize.modal.height);
+    modal.css("margin-left", modalSize.modal.marginLeft);
+    modal.css("margin-top", modalSize.modal.marginTop);
+    modal.css("top", "50%");
+    modal.css("left", "50%");
+    modal.find(".modal-body").each(function() {
+      var maxHeight = modal.height()-$('.modal-header').outerHeight()-$('.modal-footer').outerHeight()-20;
+      $(this).css("max-height", maxHeight);
+      $(this).find('.tab-pane').css('height', maxHeight);
+      $(this).find('.tab-pane').css('height', maxHeight-$('.modal-footer').outerHeight());
+    });
+
+  }
+}
+
+function storeSize() {
+  var modal = $('#rdfauthor-view');
+  // store values
+  var modalSize = {
+    'modal' : {
+      'marginLeft' : -modal.outerWidth()/2,
+        'marginTop' : -modal.outerHeight()/2,
+        'height' : modal.outerHeight(),
+        'width' : modal.outerWidth(),
+        'top' : '50%',
+        'left' : '50%'
+    },
+    'modalBody' : {
+      'maxHeight' : modal.outerHeight()-$('.modal-header').outerHeight()-$('.modal-footer').outerHeight()
+    }
+  }
+  // append values to rdfauthor view
+  $('#rdfauthor-view').data('modalSize', modalSize);
 }
 
 $(document).ready(function() {
   initTypeahead();
+  storeSize();
   $('#rdfauthor-view').resizable().draggable({
     handle: '.modal-header',
     cursor: 'move'
@@ -182,14 +227,17 @@ $(document).ready(function() {
 
   $(".modal").on("resize", function(event, ui) {
     console.log('ui',ui);
-    // ui.element.css("margin-left", -ui.size.width/2);
-    // ui.element.css("margin-top", -ui.size.height/2);
-    // ui.element.css("top", "50%");
-    // ui.element.css("left", "50%");
+    ui.element.css("margin-left", -ui.size.width/2);
+    ui.element.css("margin-top", -ui.size.height/2);
+    ui.element.css("left", "50%");
+    ui.element.css("top", "50%");
+    // fit size of modal body to prevent layout glitches
     $(ui.element).find(".modal-body").each(function() {
       var maxHeight = ui.size.height-$('.modal-header').outerHeight()-$('.modal-footer').outerHeight();
       $(this).css("max-height", maxHeight);
       $(this).find('.tab-pane').css('height', maxHeight-$('.modal-footer').outerHeight());
+      // store size of modal
+      storeSize();
     });
   });
 
@@ -260,7 +308,7 @@ $(document).ready(function() {
 
   $(document).on('click', '.modal-header button', function(event) {
     if ($(this).hasClass('icon-fullscreen')) {
-      console.log('click fullscreen', $('.modal').css(['width', 'height']));
+      toggleFullscreen();
     }
   });
 
