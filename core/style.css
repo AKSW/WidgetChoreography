@@ -70,6 +70,10 @@
   right: 0;
 }
 
+.portlet-navbar {
+  z-index: auto !important;
+}
+
 /* #rdfauthor-view { */
   /* width: 700px; */
   /* [> height: 700px; <] */
