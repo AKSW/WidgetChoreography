@@ -126,6 +126,14 @@ $(document).ready(function() {
     // .end()
     // .find( ".portlet-content" );
 
+  // double click handler on portlet navbar
+  $(document).on('dblclick', '.portlet-navbar', function(event) {
+    event.preventDefault();
+    // hide - show
+    $(this).find('.hide-show').trigger('click');
+  });
+
+
   $(document).on('click', '.portlet .dropdown-menu li a', function(event) {
     event.preventDefault();
     var portlet = $(this).parents('.portlet');
