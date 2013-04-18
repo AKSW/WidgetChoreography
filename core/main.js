@@ -348,7 +348,14 @@ $(document).ready(function() {
     if ($(this).hasClass('save')) {
       $('#rdfauthor-view').toggleClass('consumer-mode edit-mode');
     }
+  });
 
+  $('input').on('focusout', function() {
+    var object = $(this).attr('name');
+    var value = $(this).val();
+    if ($('input[name='+object+']').length > 1) {
+      $('input[name='+object+']').val(value);
+    }
   });
   // $( ".portlet-entry" )
     // .addClass( "ui-widget ui-widget-content ui-corner-all" )
