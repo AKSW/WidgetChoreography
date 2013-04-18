@@ -77,7 +77,7 @@ $(document).ready(function() {
     cursor: 'move'
   }).modal('show');
   $('.portlet-container').sortable().disableSelection();
-
+  $('.modal-header button').tooltip();
 
 
   // markItUp settings
