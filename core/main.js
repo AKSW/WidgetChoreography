@@ -338,8 +338,17 @@ $(document).ready(function() {
 
   $(document).on('click', '.modal-footer a', function(event) {
     if ($(this).hasClass('edit') || $(this).hasClass('save')) {
-        $(this).parent().find('.btn').toggleClass('hide');
+      $(this).parent().find('.btn').toggleClass('hide');
     }
+
+    if ($(this).hasClass('edit')) {
+      $('#rdfauthor-view').toggleClass('consumer-mode edit-mode');
+    }
+
+    if ($(this).hasClass('save')) {
+      $('#rdfauthor-view').toggleClass('consumer-mode edit-mode');
+    }
+
   });
   // $( ".portlet-entry" )
     // .addClass( "ui-widget ui-widget-content ui-corner-all" )
