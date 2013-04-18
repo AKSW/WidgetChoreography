@@ -336,6 +336,11 @@ $(document).ready(function() {
     }
   });
 
+  $(document).on('click', '.modal-footer a', function(event) {
+    if ($(this).hasClass('edit') || $(this).hasClass('save')) {
+        $(this).parent().find('.btn').toggleClass('hide');
+    }
+  });
   // $( ".portlet-entry" )
     // .addClass( "ui-widget ui-widget-content ui-corner-all" )
     // .find( ".portlet-header" )

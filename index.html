@@ -501,10 +501,14 @@
         </div>
       </div>
       <div class="modal-footer">
-        <a href="#" class="btn" data-dismiss="modal">Close all</a>
-        <a href="#" class="btn btn-primary">Save resource</a>
-        <a href="#" class="btn btn-primary">Save all resources</a>
-        <a href="#" class="btn btn-primary">Save choreography</a>
+        <!-- normal -->
+        <a href="#" class="btn consumer-mode" data-dismiss="modal">Close choreography</a>
+        <a href="#" class="btn btn-primary edit">Edit choreography</a>
+        <!-- edit mode-->
+        <a href="#" class="btn hide edit-mode" data-dismiss="modal">Close all</a>
+        <a href="#" class="btn btn-primary hide save edit-mode">Save all resources</a>
+        <a href="#" class="btn btn-primary hide save edit-mode">Save resource</a>
+        <a href="#" class="btn btn-primary hide save edit-mode">Save choreography</a>
       </div>
     </div>
     <!-- modal for add property -->
