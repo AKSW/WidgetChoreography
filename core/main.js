@@ -330,7 +330,8 @@ $(document).ready(function() {
 
 
   $(document).on('click', '.modal-header button', function(event) {
-    if ($(this).hasClass('icon-fullscreen')) {
+    if ($(this).hasClass('fullscreen')) {
+      $(this).toggleClass('icon-fullscreen icon-resize-small');
       toggleFullscreen();
     }
   });
