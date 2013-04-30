@@ -92,9 +92,9 @@ function enableSettings() {
 }
 
 function disableSettings() {
-  $('.portlet, .tabs').unbind('hover');
+  $('.portlet, .tabs').unbind('mouseenter mouseleave');
   $('.portlet .settings, .tabs .settings, .portlet-entry .btn-group')
-    .toggleClass('hide-important input-fullscreen input-size-135');
+    .toggleClass('hide-important');
   $('.portlet input').toggleClass('input-fullsize input-size-135');
 }
 
