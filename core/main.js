@@ -350,7 +350,7 @@ $(document).ready(function() {
     }
   });
 
-  $('input').on('focusout', function() {
+  $('input').on('keyup', function() {
     var object = $(this).attr('name');
     var value = $(this).val();
     if ($('input[name='+object+']').length > 1) {
