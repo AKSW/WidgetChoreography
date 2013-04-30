@@ -109,7 +109,7 @@ $(document).ready(function() {
   $('.modal-header button').tooltip();
 
   // disable input and textarea
-  $('#rdfauthor-view input, #rdfauthor-view textarea').prop('disabled', true);
+  // $('#rdfauthor-view input, #rdfauthor-view textarea').prop('disabled', true);
 
   // disable settings
   disableSettings();
@@ -364,7 +364,7 @@ $(document).ready(function() {
     if ($(this).hasClass('edit')) {
       $('#rdfauthor-view').toggleClass('consumer-mode edit-mode');
       $('.portlet-container, .portlet-content').sortable('option', 'disabled', false);
-      $('#rdfauthor-view input, #rdfauthor-view textarea').prop('disabled', false);
+      // $('#rdfauthor-view input, #rdfauthor-view textarea').prop('disabled', false);
       enableSettings();
     }
 
@@ -372,7 +372,7 @@ $(document).ready(function() {
     if ($(this).hasClass('save')) {
       $('#rdfauthor-view').toggleClass('consumer-mode edit-mode');
       $('.portlet-container, .portlet-content').sortable( 'option', 'disabled', true );
-      $('#rdfauthor-view input, #rdfauthor-view textarea').prop('disabled', true);
+      // $('#rdfauthor-view input, #rdfauthor-view textarea').prop('disabled', true);
       disableSettings();
     }
   });
