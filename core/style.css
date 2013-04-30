@@ -38,20 +38,35 @@
           border-radius: 4px;
 }
 
-.portlet-entry:after {
-  content: attr(data-content);
-  position: absolute;
-  top: -1px;
-  left: -1px;
-  padding: 3px 7px;
-  font-size: 12px;
-  font-weight: bold;
-  background-color: #f5f5f5;
-  border: 1px solid #ddd;
-  color: #9da0a4;
-  -webkit-border-radius: 4px 0 4px 0;
-     -moz-border-radius: 4px 0 4px 0;
-          border-radius: 4px 0 4px 0;
+/* .portlet-entry:after { */
+  /* content: attr(data-content); */
+  /* position: absolute; */
+  /* top: -1px; */
+  /* left: -1px; */
+  /* padding: 3px 7px; */
+  /* font-size: 12px; */
+  /* font-weight: bold; */
+  /* background-color: #f5f5f5; */
+  /* border: 1px solid #ddd; */
+  /* color: #9da0a4; */
+  /* -webkit-border-radius: 4px 0 4px 0; */
+     /* -moz-border-radius: 4px 0 4px 0; */
+          /* border-radius: 4px 0 4px 0; */
+/* } */
+
+.portlet-property-title {
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: bold;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    color: #9da0a4;
+    -webkit-border-radius: 4px 0 4px 0;
+    -moz-border-radius: 4px 0 4px 0;
+    border-radius: 4px 0 4px 0;
 }
 
 .portlet { margin: 0 1em 1em 0; }
