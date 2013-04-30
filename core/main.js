@@ -69,6 +69,33 @@ function storeSize() {
   $('#rdfauthor-view').data('modalSize', modalSize);
 }
 
+function enableSettings() {
+  $('.portlet .settings, .tabs .settings, .portlet-entry .btn-group')
+    .toggleClass('visibility-hidden');
+  $('.portlet').hover(function() {
+    $(this).find('.settings').fadeTo(1,1);
+  },function() {
+    if($(this).parents('li').hasClass('open')) {
+      $(this).find('.settings').fadeTo(1,1);
+    } else {
+      $(this).find('.settings').fadeTo(1,0);
+    }  
+  });
+
+  $('.tabs').hover(function() {
+    $(this).find('.settings').fadeTo(1,1);
+  },function() {
+    $(this).find('.settings').fadeTo(1,0);
+  });
+}
+
+function disableSettings() {
+  $('.portlet, .tabs').unbind('hover');
+  $('.portlet .settings, .tabs .settings, .portlet-entry .btn-group')
+    .toggleClass('visibility-hidden');
+
+}
+
 $(document).ready(function() {
   initTypeahead();
   storeSize();
@@ -83,6 +110,9 @@ $(document).ready(function() {
 
   // disable input and textarea
   $('#rdfauthor-view input, #rdfauthor-view textarea').prop('disabled', true);
+
+  // disable settings
+  disableSettings();
 
   // markItUp settings
   var markItUpSettings = {
@@ -269,26 +299,10 @@ $(document).ready(function() {
     // });
   // });
 
-  $('.portlet').hover(function() {
-    $(this).find('.settings').fadeTo(1,1);
-  },function() {
-    if($(this).parents('li').hasClass('open')) {
-      $(this).find('.settings').fadeTo(1,1);
-    } else {
-      $(this).find('.settings').fadeTo(1,0);
-    }  
-  });
-
-  $('.tabs').hover(function() {
-    $(this).find('.settings').fadeTo(1,1);
-  },function() {
-    $(this).find('.settings').fadeTo(1,0);
-  });
 
 
   $(document).on('click', '.tabs', function(event) {
     event.preventDefault();
-    console.log('left click on tab', $(this));
     $(this).tab('show');
     // $(this).parent().dropdown('toggle');
   });
@@ -346,19 +360,20 @@ $(document).ready(function() {
       $(this).parent().find('.btn').toggleClass('hide');
     }
     
-    // enable consumer mode
+    // enable edit mode
     if ($(this).hasClass('edit')) {
-      console.log('enable consumer mode');
       $('#rdfauthor-view').toggleClass('consumer-mode edit-mode');
       $('.portlet-container, .portlet-content').sortable('option', 'disabled', false);
       $('#rdfauthor-view input, #rdfauthor-view textarea').prop('disabled', false);
+      enableSettings();
     }
 
-    // disable consumer mode
+    // disable edit mode
     if ($(this).hasClass('save')) {
       $('#rdfauthor-view').toggleClass('consumer-mode edit-mode');
       $('.portlet-container, .portlet-content').sortable( 'option', 'disabled', true );
       $('#rdfauthor-view input, #rdfauthor-view textarea').prop('disabled', true);
+      disableSettings();
     }
   });
 

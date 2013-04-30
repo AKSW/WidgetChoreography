@@ -108,6 +108,10 @@
   margin-left: 6px;
 }
 
+.visibility-hidden {
+  visibility: hidden;
+}
+
 .dropdown-set {
   color: #ffffff;
   text-decoration: none;
@@ -151,6 +155,7 @@
 .modal-header .icon-modal-header {
   margin-top: 5px;
 }
+
 
 /* .navbar .nav > li { */
 /* z-index: 10000; */
