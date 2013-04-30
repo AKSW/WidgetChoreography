@@ -112,6 +112,10 @@
   width: 100%;
 }
 
+.input-size-135 {
+  width: 135% !important;
+}
+
 .input-custom {
   /* height: 10px !important; */
   margin-left: 6px;
@@ -171,7 +175,9 @@
   margin-top: 5px;
 }
 
-
+.hide-important {
+  display: none !important;
+}
 /* .navbar .nav > li { */
 /* z-index: 10000; */
 /* } */

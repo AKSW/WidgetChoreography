@@ -71,7 +71,9 @@ function storeSize() {
 
 function enableSettings() {
   $('.portlet .settings, .tabs .settings, .portlet-entry .btn-group')
-    .toggleClass('visibility-hidden');
+    .toggleClass('hide-important');
+  $('.portlet input').toggleClass('input-fullsize input-size-135');
+
   $('.portlet').hover(function() {
     $(this).find('.settings').fadeTo(1,1);
   },function() {
@@ -92,8 +94,8 @@ function enableSettings() {
 function disableSettings() {
   $('.portlet, .tabs').unbind('hover');
   $('.portlet .settings, .tabs .settings, .portlet-entry .btn-group')
-    .toggleClass('visibility-hidden');
-
+    .toggleClass('hide-important input-fullscreen input-size-135');
+  $('.portlet input').toggleClass('input-fullsize input-size-135');
 }
 
 $(document).ready(function() {
