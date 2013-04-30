@@ -81,6 +81,8 @@ $(document).ready(function() {
   }).disableSelection();
   $('.modal-header button').tooltip();
 
+  // disable input and textarea
+  $('#rdfauthor-view input, #rdfauthor-view textarea').prop('disabled', true);
 
   // markItUp settings
   var markItUpSettings = {
@@ -349,12 +351,14 @@ $(document).ready(function() {
       console.log('enable consumer mode');
       $('#rdfauthor-view').toggleClass('consumer-mode edit-mode');
       $('.portlet-container, .portlet-content').sortable('option', 'disabled', false);
+      $('#rdfauthor-view input, #rdfauthor-view textarea').prop('disabled', false);
     }
 
     // disable consumer mode
     if ($(this).hasClass('save')) {
       $('#rdfauthor-view').toggleClass('consumer-mode edit-mode');
       $('.portlet-container, .portlet-content').sortable( 'option', 'disabled', true );
+      $('#rdfauthor-view input, #rdfauthor-view textarea').prop('disabled', true);
     }
   });
 
