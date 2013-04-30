@@ -76,7 +76,9 @@ $(document).ready(function() {
     handle: '.modal-header',
     cursor: 'move'
   }).modal('show');
-  $('.portlet-container').sortable().disableSelection();
+  $('.portlet-container').sortable({
+    disabled : true
+  }).disableSelection();
   $('.modal-header button').tooltip();
 
 
@@ -183,6 +185,7 @@ $(document).ready(function() {
   });
 
   $( ".portlet-content" ).sortable({
+    disabled: true,
     conectWith: '.portlet-container'
   }).disableSelection();
 
@@ -340,13 +343,18 @@ $(document).ready(function() {
     if ($(this).hasClass('edit') || $(this).hasClass('save')) {
       $(this).parent().find('.btn').toggleClass('hide');
     }
-
+    
+    // enable consumer mode
     if ($(this).hasClass('edit')) {
+      console.log('enable consumer mode');
       $('#rdfauthor-view').toggleClass('consumer-mode edit-mode');
+      $('.portlet-container, .portlet-content').sortable('option', 'disabled', false);
     }
 
+    // disable consumer mode
     if ($(this).hasClass('save')) {
       $('#rdfauthor-view').toggleClass('consumer-mode edit-mode');
+      $('.portlet-container, .portlet-content').sortable( 'option', 'disabled', true );
     }
   });
 
