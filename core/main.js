@@ -99,7 +99,10 @@ function disableSettings() {
 }
 
 function saveChoreography() {
-
+  // clear
+  if (localStorage.getItem('choreography')) {
+    localStorage.removeItem('choreography');
+  }
   var choreography = {};
   $('#rdfauthor-view .subject').each(function(i) {
     var subjectURI = $(this).attr('name');
@@ -152,16 +155,34 @@ function saveChoreography() {
     countLiteralWidgets++;
   });
 
-
   console.log('ResourceWidgets', countResourceWidgets);
   console.log('LiteralWidgets', countLiteralWidgets);
+}
+
+function restoreChoreography() {
+  var savedChoreography = JSON.parse(localStorage.getItem('choreography'));
+  console.log('savedChoreography', savedChoreography ? savedChoreography : 'no saved choreography');
+
+  if (savedChoreography) {
+    // move porlets
+    for (var subjectURI in savedChoreography) {
+      var portlets = savedChoreography[subjectURI];
+      console.log('read subject', subjectURI);
+      for (var portletURI in portlets) {
+        var portlet = portlets[portletURI];
+        console.log('portletURI', portletURI);
+        console.log('portletPosition', portlet.pos);
+        // $('#rdfauthor-view .portlet[name="'+portletURI+'"]').before($('#rdfauthor-view .portlet:eq('+portlet.pos+')'));
+        $('#rdfauthor-view .portlet:eq('+portlet.pos+')').after($('#rdfauthor-view .portlet[name="'+portletURI+'"]'));
+      }
+    }
+  }
 }
 
 $(document).ready(function() {
 
   // restore choreography
-  var savedChoreography = JSON.parse(localStorage.getItem('choreography'));
-  console.log('savedChoreography', savedChoreography ? savedChoreography : 'no saved choreography');
+  restoreChoreography();
 
   initTypeahead();
   storeSize();
