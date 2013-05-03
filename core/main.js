@@ -98,6 +98,62 @@ function disableSettings() {
   $('.portlet input').toggleClass('input-fullsize input-size-135');
 }
 
+function saveChoreography() {
+
+  var choreography = {};
+  $('#rdfauthor-view .subject').each(function(i) {
+    var subjectURI = $(this).attr('name');
+    choreography[subjectURI] = {};
+
+    // read porlets
+    $(this).find('.portlet').each(function(portletPosition) {
+      var portletURI = $(this).attr('name');
+      choreography[subjectURI][portletURI] = {
+        pos : portletPosition,
+        property : {}
+      };
+
+      // read properties
+      $(this).find('.property').each(function(propertyPosition) {
+        var propertyURI = $(this).attr('name');
+        choreography[subjectURI][portletURI]['property'][propertyURI] = {
+          pos : propertyPosition,
+          object : {}
+        }
+
+        // read objects
+        $(this).find('.object').each(function(objectPosition) {
+          var objectValue = $(this).find('input').val();
+          choreography[subjectURI][portletURI]['property'][propertyURI]['object'][objectPosition] = {
+            value : objectValue,
+            widget : 'reserved',
+            type : 'reserved'
+          }
+        });
+
+      });
+    });
+  });
+
+  console.log('choreography', choreography);
+
+  console.log('choreographyJSON', JSON.stringify(choreography));
+
+  var countResourceWidgets = 0;
+  $('#rdfauthor-view input.resource-widget').each(function(i) {
+    countResourceWidgets++;
+  });
+
+  var countLiteralWidgets = 0;
+  $('#rdfauthor-view input.literal-widget').each(function(i) {
+    countLiteralWidgets++;
+  });
+
+
+  console.log('ResourceWidgets', countResourceWidgets);
+  console.log('LiteralWidgets', countLiteralWidgets);
+}
+
 $(document).ready(function() {
   initTypeahead();
   storeSize();
@@ -376,6 +432,7 @@ $(document).ready(function() {
       $('.portlet-container, .portlet-content').sortable( 'option', 'disabled', true );
       // $('#rdfauthor-view input, #rdfauthor-view textarea').prop('disabled', true);
       disableSettings();
+      saveChoreography();
     }
   });
 
