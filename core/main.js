@@ -135,6 +135,9 @@ function saveChoreography() {
     });
   });
 
+  // save choreography to localStorage
+  localStorage.setItem('choreography', JSON.stringify(choreography));
+
   console.log('choreography', choreography);
 
   console.log('choreographyJSON', JSON.stringify(choreography));
@@ -155,6 +158,11 @@ function saveChoreography() {
 }
 
 $(document).ready(function() {
+
+  // restore choreography
+  var savedChoreography = JSON.parse(localStorage.getItem('choreography'));
+  console.log('savedChoreography', savedChoreography ? savedChoreography : 'no saved choreography');
+
   initTypeahead();
   storeSize();
   $('#rdfauthor-view').resizable().draggable({
