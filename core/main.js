@@ -170,10 +170,20 @@ function restoreChoreography() {
       console.log('read subject', subjectURI);
       for (var portletURI in portlets) {
         var portlet = portlets[portletURI];
+        var properties = portlet['property'];
         console.log('portletURI', portletURI);
         console.log('portletPosition', portlet.pos);
-        // $('#rdfauthor-view .portlet[name="'+portletURI+'"]').before($('#rdfauthor-view .portlet:eq('+portlet.pos+')'));
+        // console.log('properties', properties);
         $('#rdfauthor-view .portlet:eq('+portlet.pos+')').after($('#rdfauthor-view .portlet[name="'+portletURI+'"]'));
+        
+        // move properties
+        for (var propertyURI in properties) {
+          var property = properties[propertyURI];
+          console.log('property', property);
+          console.log('propertyPosition', property.pos);
+          $('#rdfauthor-view .portlet[name="'+portletURI+'"] .property:eq('+property.pos+')').after($('#rdfauthor-view .portlet[name="'+portletURI+'"] .property[name="'+propertyURI+'"]'));
+          console.log('TEST', $('#rdfauthor-view .portlet[name="'+portletURI+'"] .property:eq('+property.pos+')'));
+        }
       }
     }
   }
