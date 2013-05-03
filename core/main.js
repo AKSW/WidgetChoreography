@@ -327,7 +327,7 @@ $(document).ready(function() {
   });
 
   $(".modal").on("resize", function(event, ui) {
-    console.log('ui',ui);
+    // console.log('ui',ui);
     ui.element.css("margin-left", -ui.size.width/2);
     ui.element.css("margin-top", -ui.size.height/2);
     ui.element.css("left", "50%");
