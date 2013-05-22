@@ -186,6 +186,8 @@ function restoreChoreography() {
         }
       }
     }
+  } else {
+    saveChoreography();
   }
 }
 
@@ -209,7 +211,7 @@ $(document).ready(function() {
   // $('#rdfauthor-view input, #rdfauthor-view textarea').prop('disabled', true);
 
   // disable settings
-  disableSettings();
+  // disableSettings();
 
   // markItUp settings
   var markItUpSettings = {
@@ -462,7 +464,7 @@ $(document).ready(function() {
       $('#rdfauthor-view').toggleClass('consumer-mode edit-mode');
       $('.portlet-container, .portlet-content').sortable('option', 'disabled', false);
       // $('#rdfauthor-view input, #rdfauthor-view textarea').prop('disabled', false);
-      enableSettings();
+      // enableSettings();
     }
 
     // disable edit mode and save
@@ -470,14 +472,15 @@ $(document).ready(function() {
       $('#rdfauthor-view').toggleClass('consumer-mode edit-mode');
       $('.portlet-container, .portlet-content').sortable( 'option', 'disabled', true );
       // $('#rdfauthor-view input, #rdfauthor-view textarea').prop('disabled', true);
-      disableSettings();
+      // disableSettings();
       saveChoreography();
     }
     // disable edit mode and don't save anything
     if ($(this).hasClass('cancel')) {
       $('#rdfauthor-view').toggleClass('consumer-mode edit-mode');
       $('.portlet-container, .portlet-content').sortable( 'option', 'disabled', true );
-      disableSettings();
+      // disableSettings();
+      restoreChoreography();
     }
   });
 
