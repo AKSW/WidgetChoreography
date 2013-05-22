@@ -453,7 +453,7 @@ $(document).ready(function() {
   });
 
   $(document).on('click', '.modal-footer a', function(event) {
-    if ($(this).hasClass('edit') || $(this).hasClass('save')) {
+    if ($(this).hasClass('edit') || $(this).hasClass('save') || $(this).hasClass('cancel')) {
       $(this).parent().find('.btn').toggleClass('hide');
     }
     
@@ -465,13 +465,19 @@ $(document).ready(function() {
       enableSettings();
     }
 
-    // disable edit mode
+    // disable edit mode and save
     if ($(this).hasClass('save')) {
       $('#rdfauthor-view').toggleClass('consumer-mode edit-mode');
       $('.portlet-container, .portlet-content').sortable( 'option', 'disabled', true );
       // $('#rdfauthor-view input, #rdfauthor-view textarea').prop('disabled', true);
       disableSettings();
       saveChoreography();
+    }
+    // disable edit mode and don't save anything
+    if ($(this).hasClass('cancel')) {
+      $('#rdfauthor-view').toggleClass('consumer-mode edit-mode');
+      $('.portlet-container, .portlet-content').sortable( 'option', 'disabled', true );
+      disableSettings();
     }
   });
 
