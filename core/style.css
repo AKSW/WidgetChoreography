@@ -175,6 +175,14 @@
   margin-top: 5px;
 }
 
+.brand-input {
+  font-size: 20px;
+  font-weight: 200;
+  color: #777777;
+  float: left;
+  margin-top: 10px;
+}
+
 .hide-important {
   display: none !important;
 }

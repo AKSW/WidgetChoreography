@@ -111,8 +111,10 @@ function saveChoreography() {
     // read porlets
     $(this).find('.portlet').each(function(portletPosition) {
       var portletURI = $(this).attr('name');
+      var portletBrand = $(this).find('.brand').text();
       choreography[subjectURI][portletURI] = {
         pos : portletPosition,
+        brand : portletBrand,
         property : {}
       };
 
@@ -175,6 +177,9 @@ function restoreChoreography() {
         console.log('portletPosition', portlet.pos);
         // console.log('properties', properties);
         $('#rdfauthor-view .portlet:eq('+portlet.pos+')').after($('#rdfauthor-view .portlet[name="'+portletURI+'"]'));
+
+        // set brand
+        $('#rdfauthor-view .portlet[name="'+portletURI+'"]').find('.brand').text(portlet.brand);
         
         // move properties
         for (var propertyURI in properties) {
@@ -269,7 +274,7 @@ $(document).ready(function() {
     $(this).find('.hide-show').trigger('click');
   });
 
-
+  // PORTLET CLICK EVENTS
   $(document).on('click', '.portlet .dropdown-menu li a', function(event) {
     event.preventDefault();
     var portlet = $(this).parents('.portlet');
@@ -302,6 +307,13 @@ $(document).ready(function() {
       $(this).parents('.dropdown-menu').css('z-index', '1500');
       $(this).find('i').toggleClass('icon-arrow-up').toggleClass('icon-arrow-down');
       portlet.toggleClass('portlet-minimized');
+    }
+
+    // rename
+    if ($(this).hasClass('rename')) {
+      var brandValue = portlet.find('a.brand').addClass('hide-important').text();
+      console.log('rename', brandValue);
+      portlet.find('.container').prepend('<input type="text" value="' + brandValue + '" class="input brand-input">')
     }
 
   });
@@ -487,6 +499,19 @@ $(document).ready(function() {
     }
   });
 
+  $(document).on('keypress', '.portlet .brand-input', function(event) {
+    var portlet = $(this).parents('.portlet');
+
+    // enter
+    if (event.which === 13) {
+      console.log('enter');
+      var brandValue = $(this).val();
+      $(this).remove();
+      portlet.find('.brand').removeClass('hide-important').text(brandValue);
+      saveChoreography();
+    }
+  });
+
   $('input').on('keyup', function() {
     var object = $(this).attr('name');
     var value = $(this).val();
@@ -494,6 +519,7 @@ $(document).ready(function() {
       $('input[name='+object+']').val(value);
     }
   });
+
   // $( ".portlet-entry" )
     // .addClass( "ui-widget ui-widget-content ui-corner-all" )
     // .find( ".portlet-header" )
