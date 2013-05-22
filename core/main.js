@@ -70,9 +70,9 @@ function storeSize() {
 }
 
 function enableSettings() {
-  $('.portlet .settings, .tabs .settings, .portlet-entry .btn-group')
-    .toggleClass('hide-important');
-  $('.portlet input').toggleClass('input-fullsize input-size-135');
+  // $('.portlet .settings, .tabs .settings, .portlet-entry .btn-group')
+    // .toggleClass('hide-important');
+  // $('.portlet input').toggleClass('input-fullsize input-size-135');
 
   $('.portlet').hover(function() {
     $(this).find('.settings').fadeTo(1,1);
@@ -212,6 +212,9 @@ $(document).ready(function() {
 
   // disable settings
   // disableSettings();
+
+  // enable settings by default
+  enableSettings();
 
   // markItUp settings
   var markItUpSettings = {
