@@ -332,11 +332,11 @@ $(document).ready(function() {
   });
 
   // PORTLET CLICK EVENTS
-  $(document).on('click', '.portlet .settings .dropdown-menu li a', function(event) {
+  $(document).on('click', '.portlet .actionbar .dropdown-menu li a', function(event) {
     event.preventDefault();
     var portlet = $(this).parents('.portlet');
     // add property
-    if ($(this).hasClass('add')) {
+    if ($(this).hasClass('add-portlet')) {
       var markup = '<div data-content="foo:bar" class="portlet-entry">\
                       <div class="control-group">\
                         <!-- <label class="control-label">foo:bar</label> -->\
@@ -353,21 +353,21 @@ $(document).ready(function() {
     }
 
     // remove portlet
-    if ($(this).hasClass('remove')) {
+    if ($(this).hasClass('remove-portlet')) {
       portlet.fadeOut(400, function() {
         $(this).remove();
       });
     }
 
     // hide - show
-    if ($(this).hasClass('hide-show')) {
+    if ($(this).hasClass('hide-show-portlet')) {
       $(this).parents('.dropdown-menu').css('z-index', '1500');
       $(this).find('i').toggleClass('icon-arrow-up').toggleClass('icon-arrow-down');
       portlet.toggleClass('portlet-minimized');
     }
 
     // rename
-    if ($(this).hasClass('rename')) {
+    if ($(this).hasClass('rename-portlet')) {
       var brandValue = portlet.find('a.brand').addClass('hide-important').text();
       console.log('rename', brandValue);
       portlet.find('.container').prepend('<input type="text" value="' + brandValue + '" class="input brand-input">');
@@ -387,12 +387,12 @@ $(document).ready(function() {
   });
 
 
-  $('.portlet .actionbar .icon-trash').click(function(event) {
-    event.preventDefault();
-    $(this).parents('.portlet:first').fadeOut(400, function() {
-      $(this).remove();
-    });
-  });
+  // $('.portlet .actionbar .icon-trash').click(function(event) {
+    // event.preventDefault();
+    // $(this).parents('.portlet:first').fadeOut(400, function() {
+      // $(this).remove();
+    // });
+  // });
 
   // $('.portlet .actionbar .icon-plus-sign').click(function(event) {
     // event.preventDefault();
