@@ -186,6 +186,14 @@
 .hide-important {
   display: none !important;
 }
+
+#rdfauthor-view .property-settings {
+  margin-top: -30px;
+  visibility: visible;
+  opacity:0;
+  filter:alpha(opacity=0);
+}
+
 /* .navbar .nav > li { */
 /* z-index: 10000; */
 /* } */

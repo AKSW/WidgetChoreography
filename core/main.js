@@ -89,6 +89,17 @@ function enableSettings() {
   },function() {
     $(this).find('.settings').fadeTo(1,0);
   });
+
+  $('.portlet-entry').hover(function() {
+    $(this).find('.property-settings').fadeTo(1,1);
+  },function() {
+    if($(this).parents('li').hasClass('open')) {
+      $(this).find('.property-settings').fadeTo(1,1);
+    } else {
+      $(this).find('.property-settings').fadeTo(1,0);
+    }  
+  });
+
 }
 
 function disableSettings() {
@@ -313,10 +324,12 @@ $(document).ready(function() {
     if ($(this).hasClass('rename')) {
       var brandValue = portlet.find('a.brand').addClass('hide-important').text();
       console.log('rename', brandValue);
-      portlet.find('.container').prepend('<input type="text" value="' + brandValue + '" class="input brand-input">')
+      portlet.find('.container').prepend('<input type="text" value="' + brandValue + '" class="input brand-input">');
     }
 
   });
+
+  
 
   $('.portlet .actionbar .icon-trash').click(function(event) {
     event.preventDefault();
