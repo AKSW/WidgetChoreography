@@ -332,7 +332,7 @@ $(document).ready(function() {
   });
 
   // PORTLET CLICK EVENTS
-  $(document).on('click', '.portlet .dropdown-menu li a', function(event) {
+  $(document).on('click', '.portlet .settings .dropdown-menu li a', function(event) {
     event.preventDefault();
     var portlet = $(this).parents('.portlet');
     // add property
