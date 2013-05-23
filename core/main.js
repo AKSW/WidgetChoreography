@@ -207,6 +207,52 @@ function restoreChoreography() {
   }
 }
 
+function addObject(property) {
+  var markup = '<div class="object line input-prepend input-append">\
+                      <span class="add-on">\
+                        <i class="icon-bookmark"></i>\
+                        </span><input name="1-rdfs-label-2" type="text" placeholder="new object" value="" class="input input-fullsize literal-widget">\
+                        <div class="btn-group">\
+                          <button class="btn dropdown-toggle" data-toggle="dropdown">\
+                            <i class="icon-cog"></i>\
+                          </button>\
+                          <ul class="dropdown-menu">\
+                            <!-- <li><a class="object-language" href="#"><i class="icon-globe" style="padding-right: 5px;"></i>Language</a></li> -->\
+                            <!--li class="dropdown-submenu">\
+                              <a class="object-language" tabindex="-1" href="#"><i class="icon-globe" style="padding-right: 5px;"></i>Language</a>\
+                              <ul class="dropdown-menu">\
+                                <li><a tabindex="-1" href="#">en</a></li>\
+                                <li><a tabindex="-1" href="#">de</a></li>\
+                                <li><a tabindex="-1" href="#">nl</a></li>\
+                                <li><a tabindex="-1" href="#">fr</a></li>\
+                                <li><a tabindex="-1" href="#">it</a></li>\
+                                <li class="divider"></li>\
+                                <li><input type="text" class="input-small input-custom" placeholder="custom lang"></li>\
+                              </ul>\
+                            </li>\
+                            <li class="dropdown-submenu">\
+                              <a class="object-datatype" tabindex="-1" href="#"><i class="icon-tag" style="padding-right: 5px;"></i>Datatype</a>\
+                              <ul class="dropdown-menu">\
+                                <li><a tabindex="-1" href="#">xsd:string</a></li>\
+                                <li><a tabindex="-1" href="#">xsd:decimal</a></li>\
+                                <li><a tabindex="-1" href="#">xsd:integer</a></li>\
+                                <li><a tabindex="-1" href="#">xsd:float</a></li>\
+                                <li><a tabindex="-1" href="#">xsd:boolean</a></li>\
+                                <li><a tabindex="-1" href="#">xsd:date</a></li>\
+                                <li><a tabindex="-1" href="#">xsd:time</a></li>\
+                                <li class="divider"></li>\
+                                <li><input type="text" class="input-small input-custom" placeholder="custom type"></li>\
+                              </ul>\
+                            </li-->\
+                            <!-- <li><a class="object-remove" href="#"><i class="icon-tag" style="padding-right: 5px;"></i>Datatype</a></li> -->\
+                            <li><a class="object-remove" href="#"><i class="icon-trash" style="padding-right: 5px;"></i>Remove</a></li>\
+                          </ul>\
+                        </div>\
+                    </div>';
+
+  property.find('.controls').append(markup);
+}
+
 $(document).ready(function() {
 
   // restore choreography
@@ -329,7 +375,17 @@ $(document).ready(function() {
 
   });
 
-  
+  // PORTLET PROPERTY CLICK EVENTS
+  $(document).on('click', '.portlet .property .dropdown-menu li a', function(event) {
+    event.preventDefault();
+    var portletEntry = $(this).parents('.portlet-entry');
+    
+    if ($(this).hasClass('add')) {
+      console.log('add object');
+      addObject(portletEntry);
+    }
+  });
+
 
   $('.portlet .actionbar .icon-trash').click(function(event) {
     event.preventDefault();
@@ -338,10 +394,10 @@ $(document).ready(function() {
     });
   });
 
-  $('.portlet .actionbar .icon-plus-sign').click(function(event) {
-    event.preventDefault();
-    $('#addProperty').modal('show');
-  });
+  // $('.portlet .actionbar .icon-plus-sign').click(function(event) {
+    // event.preventDefault();
+    // $('#addProperty').modal('show');
+  // });
 
   $( ".portlet-content" ).sortable({
     disabled: true,
