@@ -368,10 +368,14 @@ $(document).ready(function() {
 
     // rename
     if ($(this).hasClass('rename-portlet')) {
-      var brandValue = portlet.find('a.brand').addClass('hide-important').text();
-      console.log('rename', brandValue);
-      portlet.find('.container').prepend('<input type="text" value="' + brandValue + '" class="input brand-input">');
-      portlet.find('.container .brand-input').select();
+      if (portlet.find('.container .brand-input').length === 0) {
+        var brandValue = portlet.find('a.brand').addClass('hide-important').text();
+        console.log('rename', brandValue);
+        portlet.find('.container').prepend('<input type="text" value="' + brandValue + '" class="input brand-input">');
+        portlet.find('.container .brand-input').select();
+      } else {
+         portlet.find('.container .brand-input').select();
+      }
     }
 
   });
