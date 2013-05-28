@@ -194,6 +194,10 @@
   filter:alpha(opacity=0);
 }
 
+#rdfauthor-view .disabled {
+  color: #DEDEDE;
+}
+
 /* .navbar .nav > li { */
 /* z-index: 10000; */
 /* } */

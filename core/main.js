@@ -335,48 +335,53 @@ $(document).ready(function() {
   $(document).on('click', '.portlet .actionbar .dropdown-menu li a', function(event) {
     event.preventDefault();
     var portlet = $(this).parents('.portlet');
-    // add property
-    if ($(this).hasClass('add-portlet')) {
-      var markup = '<div data-content="foo:bar" class="portlet-entry">\
-                      <div class="control-group">\
-                        <!-- <label class="control-label">foo:bar</label> -->\
-                        <div class="controls">\
-                          <div class="line input-prepend input-append">\
-                            <span class="add-on">\
-                              <i class="icon-bookmark"></i>\
-                            </span><input type="text" value="Add Foo Bar Test" class="input resource-widget"><button class="btn" type="button"><i class="icon-cog"></i></button>\
+
+    if (!$(this).hasClass('disabled')) {
+
+      // add property
+      if ($(this).hasClass('add-portlet')) {
+        var markup = '<div data-content="foo:bar" class="portlet-entry">\
+                        <div class="control-group">\
+                          <!-- <label class="control-label">foo:bar</label> -->\
+                          <div class="controls">\
+                            <div class="line input-prepend input-append">\
+                              <span class="add-on">\
+                                <i class="icon-bookmark"></i>\
+                              </span><input type="text" value="Add Foo Bar Test" class="input resource-widget"><button class="btn" type="button"><i class="icon-cog"></i></button>\
+                            </div>\
                           </div>\
                         </div>\
-                      </div>\
-                    </div>';
-      portlet.find('.portlet-content').append(markup);
-    }
-
-    // remove portlet
-    if ($(this).hasClass('remove-portlet')) {
-      portlet.fadeOut(400, function() {
-        $(this).remove();
-      });
-    }
-
-    // hide - show
-    if ($(this).hasClass('hide-show-portlet')) {
-      $(this).parents('.dropdown-menu').css('z-index', '1500');
-      $(this).find('i').toggleClass('icon-arrow-up').toggleClass('icon-arrow-down');
-      portlet.toggleClass('portlet-minimized');
-    }
-
-    // rename
-    if ($(this).hasClass('rename-portlet')) {
-      if (portlet.find('.container .brand-input').length === 0) {
-        var brandValue = portlet.find('a.brand').addClass('hide-important').text();
-        console.log('rename', brandValue);
-        portlet.find('.container').prepend('<input type="text" value="' + brandValue + '" class="input brand-input">');
-        portlet.find('.container .brand-input').select();
-      } else {
-         portlet.find('.container .brand-input').select();
+                      </div>';
+        portlet.find('.portlet-content').append(markup);
       }
-    }
+
+      // remove portlet
+      if ($(this).hasClass('remove-portlet')) {
+        portlet.fadeOut(400, function() {
+          $(this).remove();
+        });
+      }
+
+      // hide - show
+      if ($(this).hasClass('hide-show-portlet')) {
+        $(this).parents('.dropdown-menu').css('z-index', '1500');
+        $(this).find('i').toggleClass('icon-arrow-up').toggleClass('icon-arrow-down');
+        portlet.toggleClass('portlet-minimized');
+      }
+
+      // rename
+      if ($(this).hasClass('rename-portlet')) {
+        if (portlet.find('.container .brand-input').length === 0) {
+          var brandValue = portlet.find('a.brand').addClass('hide-important').text();
+          console.log('rename', brandValue);
+          portlet.find('.container').prepend('<input type="text" value="' + brandValue + '" class="input brand-input">');
+          portlet.find('.container .brand-input').select();
+        } else {
+           portlet.find('.container .brand-input').select();
+        }
+      }
+
+    } // disabled check
 
   });
 
@@ -550,6 +555,8 @@ $(document).ready(function() {
     
     // enable edit mode
     if ($(this).hasClass('edit')) {
+      // enable disabled actions
+      $('#rdfauthor-view .disabled').toggleClass('disabled enabled');
       $('#rdfauthor-view').toggleClass('consumer-mode edit-mode');
       $('.portlet-container, .portlet-content').sortable('option', 'disabled', false);
       // $('#rdfauthor-view input, #rdfauthor-view textarea').prop('disabled', false);
@@ -558,6 +565,8 @@ $(document).ready(function() {
 
     // disable edit mode and save
     if ($(this).hasClass('save')) {
+      // enable disabled actions
+      $('#rdfauthor-view .enabled').toggleClass('disabled enabled');
       $('#rdfauthor-view').toggleClass('consumer-mode edit-mode');
       $('.portlet-container, .portlet-content').sortable( 'option', 'disabled', true );
       // $('#rdfauthor-view input, #rdfauthor-view textarea').prop('disabled', true);
@@ -566,6 +575,8 @@ $(document).ready(function() {
     }
     // disable edit mode and don't save anything
     if ($(this).hasClass('cancel')) {
+      // enable disabled actions
+      $('#rdfauthor-view .enabled').toggleClass('disabled enabled');
       $('#rdfauthor-view').toggleClass('consumer-mode edit-mode');
       $('.portlet-container, .portlet-content').sortable( 'option', 'disabled', true );
       // disableSettings();
