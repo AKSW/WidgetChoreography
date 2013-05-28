@@ -371,6 +371,7 @@ $(document).ready(function() {
       var brandValue = portlet.find('a.brand').addClass('hide-important').text();
       console.log('rename', brandValue);
       portlet.find('.container').prepend('<input type="text" value="' + brandValue + '" class="input brand-input">');
+      portlet.find('.container .brand-input').select();
     }
 
   });
