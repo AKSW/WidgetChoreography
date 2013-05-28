@@ -186,6 +186,7 @@ function restoreChoreography() {
         var properties = portlet['property'];
         console.log('portletURI', portletURI);
         console.log('portletPosition', portlet.pos);
+
         // console.log('properties', properties);
         $('#rdfauthor-view .portlet:eq('+portlet.pos+')').after($('#rdfauthor-view .portlet[name="'+portletURI+'"]'));
 
@@ -593,7 +594,6 @@ $(document).ready(function() {
       var brandValue = $(this).val();
       $(this).remove();
       portlet.find('.brand').removeClass('hide-important').text(brandValue);
-      saveChoreography();
     }
   });
 
