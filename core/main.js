@@ -203,6 +203,9 @@ function restoreChoreography() {
         }
       }
     }
+
+    // restore items which were marked as removed
+    $('#rdfauthor-view .was-removed').removeClass('was-removed').fadeIn();
   } else {
     saveChoreography();
   }
@@ -358,9 +361,11 @@ $(document).ready(function() {
 
       // remove portlet
       if ($(this).hasClass('remove-portlet')) {
-        portlet.fadeOut(400, function() {
-          $(this).remove();
-        });
+        // hide and mark as removed
+        portlet.addClass('was-removed').fadeOut(400);
+        // portlet.fadeOut(400, function() {
+          // $(this).remove();
+        // });
       }
 
       // hide - show
@@ -410,7 +415,8 @@ $(document).ready(function() {
       // remove property
       if ($(this).hasClass('remove-property')) {
         console.log('remove property');
-        portletEntry.remove();
+        // hide and mark as removed
+        portletEntry.addClass('was-removed').fadeOut(400);
       }
 
       // hide - show
