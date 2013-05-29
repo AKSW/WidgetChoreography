@@ -391,9 +391,15 @@ $(document).ready(function() {
     event.preventDefault();
     var portletEntry = $(this).parents('.portlet-entry');
     
-    if ($(this).hasClass('add')) {
-      console.log('add object');
-      addObject(portletEntry);
+    if (!$(this).hasClass('disabled')) {
+      if ($(this).hasClass('add-object')) {
+        console.log('add object');
+        addObject(portletEntry);
+      }
+
+      if ($(this).hasClass('remove-property')) {
+        console.log('remove property');
+      }
     }
   });
 
