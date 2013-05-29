@@ -386,23 +386,50 @@ $(document).ready(function() {
 
   });
 
+// double click handler on property header
+  $(document).on('dblclick', '#rdfauthor-view .property', function(event) {
+    event.preventDefault();
+    // hide - show
+    $(this).find('.hide-show-property').trigger('click');
+  });
+
+
   // PORTLET PROPERTY CLICK EVENTS
   $(document).on('click', '.portlet .property .dropdown-menu li a', function(event) {
     event.preventDefault();
     var portletEntry = $(this).parents('.portlet-entry');
     
     if (!$(this).hasClass('disabled')) {
+
+      // add object
       if ($(this).hasClass('add-object')) {
         console.log('add object');
         addObject(portletEntry);
       }
 
+      // remove property
       if ($(this).hasClass('remove-property')) {
         console.log('remove property');
       }
+
+      // hide - show
+      if ($(this).hasClass('hide-show-property')) {
+        // $(this).parents('.dropdown-menu').css('z-index', '1500');
+        $(this).find('i').toggleClass('icon-arrow-up').toggleClass('icon-arrow-down');
+        portletEntry.toggleClass('property-minimized');
+        portletEntry.find('.object-listing, .object-details').toggleClass('hide');
+        var objectLength = portletEntry.find('.object').length;
+        portletEntry.find('.object-count').text(objectLength);
+      }
+
     }
   });
 
+  $(document).on('click', '.portlet .property .btn-object-details', function(event) {
+    event.preventDefault();
+    console.log('click', $(this).parents('.property').find('.hide-show-property'));
+    $(this).parents('.property').find('.hide-show-property').trigger('click');
+  });
 
   // $('.portlet .actionbar .icon-trash').click(function(event) {
     // event.preventDefault();

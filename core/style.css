@@ -89,6 +89,10 @@
   z-index: auto !important;
 }
 
+#rdfauthor-view .property-minimized {
+  /* height:auto !important; */
+}
+
 /* #rdfauthor-view { */
   /* width: 700px; */
   /* [> height: 700px; <] */
