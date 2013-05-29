@@ -410,6 +410,7 @@ $(document).ready(function() {
       // remove property
       if ($(this).hasClass('remove-property')) {
         console.log('remove property');
+        portletEntry.remove();
       }
 
       // hide - show
