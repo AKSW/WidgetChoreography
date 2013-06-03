@@ -211,6 +211,33 @@ function restoreChoreography() {
   }
 }
 
+function addPortlet(subject) {
+  var markup = '<div name="http://rdfauthor.com/choreo_common" class="span5 portlet">\
+                  <div class="navbar navbar-fixed-top portlet-navbar" style="position: absolute;">\
+                    <div class="navbar-inner">\
+                      <div class="container" style="width: auto; padding: 0 20px;">\
+                        <a class="brand" href="#"></a>\
+                        <input type="text" value="" class="input brand-input">\
+                        <ul class="nav actionbar pull-right">\
+                          <li class="dropdown">\
+                            <a href="#" class="dropdown-toggle settings" data-toggle="dropdown" style="opacity: 0;"><i class="icon-cog"></i></a>\
+                            <ul class="dropdown-menu">\
+                              <li><a class="hide-show hide-show-portlet" href="#"><i class="icon-arrow-up" style="padding-right: 5px;"></i>Hide/Show</a></li>\
+                              <li><a class="remove remove-portlet enabled" href="#"><i class="icon-trash" style="padding-right: 5px;"></i>Remove Portlet</a></li>\
+                              <li><a class="add add-portlet" href="#"><i class="icon-plus-sign" style="padding-right: 5px;"></i>Add Property</a></li>\
+                              <li><a class="rename rename-portlet enabled" href="#&quot;"><i class="icon-pencil" style="padding-right: 5px;"></i>Rename Portlet</a></li>\
+                            </ul>\
+                          </li>\
+                        </ul>\
+                      </div>\
+                    </div>\
+                  </div>\
+                </div>';
+  subject.append(markup);
+  enableSettings();
+}
+
+
 function addObject(property) {
   var markup = '<div class="object line input-prepend input-append">\
                       <span class="add-on">\
@@ -533,7 +560,20 @@ $(document).ready(function() {
     // });
   // });
 
+  $(document).on('click', '#rdfauthor-view .tabbable .dropdown-menu a', function(event) {
+    console.log('click on dropdown item');
+    var subjectContentID = $(this).parents('.dropdown').find('a.tabs').attr('href');
+    var subjectContent = $('#rdfauthor-view ' + subjectContentID);
+    console.log('id', subjectContentID);
+    console.log('content', subjectContent);
 
+    if (!$(this).hasClass('disabled')) {
+      // add portlet
+      if($(this).hasClass('add-portlet')) {
+        addPortlet(subjectContent);
+      }
+    }
+  });
 
   $(document).on('click', '.tabs', function(event) {
     event.preventDefault();
